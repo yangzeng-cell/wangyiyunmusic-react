@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.21.7",
     "craco-less": "^2.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "immutable": "^4.1.0",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
@@ -18,7 +19,6 @@
     "redux": "^4.2.0",
     "redux-immutable": "^4.0.0",
     "redux-thunk": "^2.4.1",
-    "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -30,13 +30,8 @@
     "lint": "react-scripts lint",
     "serve": "craco start",
     "push": "craco build",
-    "prepare": "husky install"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "prepare": "husky install",
+    "commit": "cz"
   },
   "browserslist": {
     "production": [
@@ -51,9 +46,19 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "commitizen": "^4.2.5",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.20.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-react": "^7.30.1",
-    "prettier": "^2.7.1",
-    "husky": "^8.0.0"
+    "husky": "^8.0.0",
+    "prettier": "^2.7.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

@@ -1,6 +1,7 @@
-import logo from './logo.svg'
-import './App.less'
-import { Button } from 'antd'
+import logo from './logo.svg';
+import './App.less';
+import { Button } from 'antd';
+import { React } from 'react';
 function App() {
   return (
     <div className="App">
@@ -20,7 +21,7 @@ function App() {
         </a>
       </header>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
