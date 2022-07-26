@@ -5,6 +5,7 @@ import {
   AppHeaderWrapperButtomLine
 } from './style';
 import NavLink from '../NavLink';
+import SearchInput from '../SearchInput';
 export default function index() {
   const [links] = useState([
     {
@@ -44,9 +45,10 @@ export default function index() {
         <AppHeaderWrapperMain>
           <div className="wrap">
             <h1 className="logo">
-              <a href="javascript:;">网易云音乐</a>
+              <a href="/">网易云音乐</a>
             </h1>
             <NavLink links={links}></NavLink>
+            <SearchInput></SearchInput>
           </div>
         </AppHeaderWrapperMain>
         <AppHeaderWrapperButtomLine>
