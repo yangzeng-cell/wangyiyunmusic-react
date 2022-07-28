@@ -2,13 +2,16 @@ import styled from 'styled-components';
 
 export const BannerListWrapper = styled.div`
   .banner_bg {
+    /* 高斯模糊的问题注意怎么解决 */
     height: 285px;
-    background-color: brown;
+    background-size: 6000px;
+    background-position: center center;
     .outer {
       width: 982px;
       height: 100%;
       margin: 0 auto;
       position: relative;
+      z-index: 1000;
       .wrap {
         position: relative;
         width: 982px;
@@ -31,7 +34,7 @@ export const BannerListWrapper = styled.div`
           height: 285px;
           position: absolute;
           top: 0;
-          right: 0;
+          right: -1px;
           background: url(${require('../../assets/images/download.png')})
             no-repeat 0 0;
           .dowload_link {
@@ -52,6 +55,26 @@ export const BannerListWrapper = styled.div`
             text-align: center;
             font-size: 12px;
           }
+          .shadow {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 285px;
+            top: 0;
+            left: -20px;
+            background: url(${require('@/assets/images/banner.png')}) no-repeat -1px
+              0;
+          }
+          .shadowr {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 285px;
+            top: 0;
+            right: -20px;
+            background: url(${require('@/assets/images/banner.png')}) no-repeat -1px
+              0;
+          }
         }
         .dots {
           position: absolute;
@@ -69,6 +92,10 @@ export const BannerListWrapper = styled.div`
             &:hover {
               background-position: -16px -343px;
             }
+          }
+          .dot_focus {
+            background: url(${require('@/assets/images/banner.png')}) no-repeat;
+            background-position: -16px -343px;
           }
         }
       }
