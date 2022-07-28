@@ -1,11 +1,16 @@
 import React from 'react';
 import { Input } from 'antd';
 import { SearchInputWrapper } from './style';
-
+import { SearchOutlined } from '@ant-design/icons';
 export default function index() {
   return (
     <SearchInputWrapper>
-      <Input className="inputClass" placeholder="Basic usage" />
+      <Input
+        prefix={<SearchOutlined></SearchOutlined>}
+        className="inputClass"
+        placeholder="音乐/视频/电台/用户"
+      />
+
       <a className="m-topvd" href="/">
         创作者中心
       </a>

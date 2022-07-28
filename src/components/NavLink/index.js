@@ -3,14 +3,21 @@ import { NavLink as NavLink1 } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { NavLinkWrapper } from './style';
 export default function NavLink({ links }) {
-  const [isActive] = useState(0);
+  const [isActive, setIsActive] = useState(0);
+  function setActiveFn(index) {
+    return setIsActive(index);
+  }
   return (
     <NavLinkWrapper>
       <>
         <ul className="m_nav">
           {links.map((link, index, links) => {
             return (
-              <li key={link.id} title={link.name}>
+              <li
+                key={link.id}
+                title={link.name}
+                onClick={() => setActiveFn(index)}
+              >
                 <NavLink1
                   className={
                     (isActive === index ? 'isActive ' : '') +

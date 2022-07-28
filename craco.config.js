@@ -15,6 +15,14 @@ module.exports = {
     }
   ],
   webpack: {
+    devServer: {
+      // proxy: {
+      //   '/': {
+      //     target: 'https://netease-cloud-music-api-zeta-sand.vercel.app',
+      //     changeOrigin: true
+      //   }
+      // }
+    },
     alias: {
       '@': path.resolve(__dirname, 'src'),
       components: path.resolve(__dirname, 'src')

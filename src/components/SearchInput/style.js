@@ -9,6 +9,11 @@ export const SearchInputWrapper = styled.div`
   .inputClass {
     width: 158px;
     height: 32px;
+    border-radius: 32px;
+    font-size: 12px !important;
+    .ant-input {
+      font-size: 12px;
+    }
   }
   .m-topvd {
     display: block;
