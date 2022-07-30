@@ -10,7 +10,7 @@ export const NewDiskWrapper = styled.div`
       border: 1px solid #fff;
       background: #f5f5f5;
       width: 100%;
-      padding: 0 27px;
+      padding: 0 26px 0 25px;
       position: relative;
       .banner {
         display: flex;
@@ -24,6 +24,11 @@ export const NewDiskWrapper = styled.div`
           flex-shrink: 0;
           position: absolute;
           display: flex;
+          li {
+            &:nth-child(n + 2) {
+              margin-left: 11px;
+            }
+          }
         }
       }
       .pre_arrow {
