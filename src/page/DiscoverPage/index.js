@@ -5,29 +5,29 @@ import { DiscoverPageWrapper } from './style';
 
 export default function DiscoverPage() {
   const [navList] = useState([
-    { id: 1, name: '推荐', path: 'discover' },
+    { id: 11, name: '推荐', path: 'discover' },
     {
-      id: 2,
+      id: 22,
       name: '排行榜',
       path: 'discover/toplist'
     },
     {
-      id: 3,
+      id: 33,
       name: '歌单',
       path: 'discover/playlist'
     },
     {
-      id: 4,
+      id: 44,
       name: '主播电台',
       path: 'discover/djradio'
     },
     {
-      id: 5,
+      id: 55,
       name: '歌手',
       path: 'discover/artist'
     },
     {
-      id: 6,
+      id: 66,
       name: '新碟上架',
       path: 'discover/album'
     }

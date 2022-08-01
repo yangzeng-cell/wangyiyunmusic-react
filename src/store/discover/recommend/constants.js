@@ -11,3 +11,5 @@ export const PREVIOUS_INDEX = 'PREVIOUS_INDEX';
 export const CURRENT_INDEX = 'CURRENT_INDEX';
 
 export const NEW_ALBUM_LIST = 'NEW_ALBUM_LIST';
+
+export const ALL_TOP_LIST = 'ALL_TOP_LIST';

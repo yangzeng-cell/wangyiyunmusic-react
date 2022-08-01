@@ -93,7 +93,7 @@ export default class BannerList extends Component {
     let alist = [];
     for (let i = 0; i < len; i++) {
       alist.push(
-        <a href="#" key={i} className="click_flag" data-index={i}></a>
+        <a href="/#" key={'e' + i} className="click_flag" data-index={i}></a>
       );
     }
 
@@ -109,7 +109,12 @@ export default class BannerList extends Component {
               >
                 {this.props.topBanners.map((images) => {
                   return (
-                    <a className="image_link" key={images.targetId} href="/#">
+                    <a
+                      className="image_link"
+                      data-index={images.targetId}
+                      key={images.imageUrl}
+                      href="/#"
+                    >
                       <img src={images.imageUrl}></img>
                     </a>
                   );

@@ -9,7 +9,8 @@ const defaultState = Map({
   recommendList: [],
   previousIndex: 0,
   currentIndex: 0,
-  newAlbumList: []
+  newAlbumList: [],
+  topList: []
 });
 
 function reducer(state = defaultState, action) {
@@ -28,6 +29,8 @@ function reducer(state = defaultState, action) {
       return state.set('currentIndex', action.currentIndex);
     case recommendTypes.NEW_ALBUM_LIST:
       return state.set('newAlbumList', action.newAlbumList);
+    case recommendTypes.ALL_TOP_LIST:
+      return state.set('topList', action.topList);
     default:
       return state;
   }

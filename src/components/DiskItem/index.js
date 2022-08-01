@@ -21,12 +21,13 @@ export default function DiskItem(props) {
         onMouseOut={() => moveOut()}
       >
         <img className="pic" src={item.picUrl + '?param=100y100'}></img>
-        <a
+        {/* a标签里面不可以嵌套a标签 */}
+        <span
           ref={playRef}
-          href="javascript:;"
+          href="#"
           title="播放"
           className="icon_play iconall"
-        ></a>
+        ></span>
       </Link>
       <Link title={item.name} className="title" to={'/album?id=' + item.id}>
         {item.name}

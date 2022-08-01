@@ -2,7 +2,8 @@ import {
   getNewAlbumListAPI,
   getPlayListAPI,
   getRecommendBannerList,
-  getRecommendListAPI
+  getRecommendListAPI,
+  getTopListAPI
 } from '../../../service/recommend';
 import * as recommendTypes from './constants';
 
@@ -39,6 +40,11 @@ const changeCurrentIndex = (index) => ({
 const changeAlbumList = (newAlbumList) => ({
   type: recommendTypes.NEW_ALBUM_LIST,
   newAlbumList: newAlbumList
+});
+
+const changeTopList = (topList) => ({
+  type: recommendTypes.ALL_TOP_LIST,
+  topList: topList
 });
 
 export const getIndex = (index) => {
@@ -84,6 +90,13 @@ export const setCurrentIndexAction = (index) => {
 export const changeAlbumListAction = (offset = 0, limit = 10) => {
   return async (dispatch) => {
     const res = await getNewAlbumListAPI(offset, limit);
-    dispatch(changeAlbumList(res.weekData));
+    dispatch(changeAlbumList(res.monthData));
+  };
+};
+
+export const changeTopListAction = () => {
+  return async (dispatch) => {
+    const res = await getTopListAPI();
+    dispatch(changeTopList(res.list));
   };
 };

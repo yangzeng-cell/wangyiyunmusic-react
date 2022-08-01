@@ -5,6 +5,7 @@ export const NewDiskWrapper = styled.div`
     height: 186px;
     margin: 20px 0 37px;
     border: 1px solid #d3d3d3;
+    overflow: hidden;
     .inner {
       height: 100%;
       border: 1px solid #fff;
@@ -31,28 +32,44 @@ export const NewDiskWrapper = styled.div`
           }
         }
       }
-      .pre_arrow {
-        background-position: -260px -75px;
-        left: 0;
-        &:hover {
-          background-position: -280px -75px;
-        }
-      }
-      .next_arrow {
-        right: 0;
-        background-position: -300px -75px;
-        &:hover {
-          background-position: -320px -75px;
-        }
-      }
-      .arr_same {
-        top: 50%;
-        transform: translateY(-50%);
-        margin-top: 10px;
-        height: 17px;
-        width: 17px;
+      .pre {
         position: absolute;
+        height: 100%;
+        top: 0;
+        left: -1px;
+        background: #f5f5f5;
+        width: 25px;
+        .pre_arrow {
+          background-position: -260px -75px;
+          left: 0;
+          &:hover {
+            background-position: -280px -75px;
+          }
+        }
       }
+      .next {
+        position: absolute;
+        height: 100%;
+        top: 0;
+        right: -1px;
+        background: #f5f5f5;
+        width: 27px;
+        .next_arrow {
+          right: 0;
+          background-position: -300px -75px;
+          &:hover {
+            background-position: -320px -75px;
+          }
+        }
+      }
+    }
+    .arr_same {
+      top: 37%;
+      transform: translateY(-50%);
+      margin-top: 10px;
+      height: 17px;
+      width: 17px;
+      position: absolute;
     }
   }
 `;

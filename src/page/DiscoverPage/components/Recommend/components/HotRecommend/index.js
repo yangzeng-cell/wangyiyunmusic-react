@@ -51,7 +51,6 @@ function HotRecommend() {
   useEffect(() => {
     setUseList(recommendList.slice(0, 8));
   }, [recommendList]);
-  console.log(useList);
   return (
     <HotRecommendWrapper>
       <TopHeader

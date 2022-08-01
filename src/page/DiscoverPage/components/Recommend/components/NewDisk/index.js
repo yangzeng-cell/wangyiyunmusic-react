@@ -24,43 +24,40 @@ export default function NewDisk(props) {
   }, shallowEqual);
   const dispatch = useDispatch();
   const arrow = (index) => {
-    console.log(index);
     switch (index) {
       case 1:
         dispatch(setPreviousIndexAction(currentIndex));
         dispatch(setCurrentIndexAction(currentIndex - 1));
-        switchBannerItem();
+        switchBannerItem(currentIndex - 1);
         break;
       case 2:
         dispatch(setPreviousIndexAction(currentIndex));
         dispatch(setCurrentIndexAction(currentIndex + 1));
-        switchBannerItem();
+        switchBannerItem(currentIndex + 1);
         break;
       default:
         break;
     }
   };
-  const switchBannerItem = () => {
+  const switchBannerItem = async (current) => {
     bannerRef.current.style.transition = 'all 500ms ease';
-    bannerRef.current.style.transform = `translateX(${-currentIndex * 100}%)`;
-    if (currentIndex === bannerCounter) {
+    bannerRef.current.style.transform = `translateX(${-current * 100}%)`;
+    if (current === bannerCounter) {
       dispatch(setCurrentIndexAction(0));
-      fixBannerPosition();
-    } else if (currentIndex === -1) {
+      fixBannerPosition(0);
+    } else if (current === -1) {
       dispatch(setCurrentIndexAction(bannerCounter - 1));
-      fixBannerPosition();
+      fixBannerPosition(1);
     }
   };
-  const fixBannerPosition = () => {
+  const fixBannerPosition = (index) => {
     setTimeout(() => {
-      (bannerRef.current.style.transition = 'none'),
-        (bannerRef.current.style.transform = `translateX(${
-          -currentIndex * 100
-        }%)`);
+      bannerRef.current.style.transition = 'none';
+      bannerRef.current.style.transform = `translateX(${-index * 100}%)`;
     }, 500);
   };
   useEffect(() => {
-    if (props.newAlbumList.length > 0) {
+    if (props.newAlbumList?.length > 0) {
       setBannerCounter(bannerRef.current.children.length);
       cloneAppend();
     }
@@ -80,7 +77,7 @@ export default function NewDisk(props) {
         <div className="inner">
           <div className="banner" ref={bannerRef}>
             <ul className="roller_flag" style={{ left: '0%' }}>
-              {props.newAlbumList.slice(0, 5).map((item) => {
+              {props.newAlbumList?.slice(0, 5).map((item) => {
                 return (
                   <li key={item.picId}>
                     <DiskItem item={item}></DiskItem>
@@ -89,21 +86,26 @@ export default function NewDisk(props) {
               })}
             </ul>
             <ul className="roller_flag" style={{ left: '100%' }}>
-              {props.newAlbumList.slice(5, 10).map((item) => (
+              {props.newAlbumList?.slice(5, 10).map((item) => (
                 <li key={item.picId}>
                   <DiskItem item={item}></DiskItem>
                 </li>
               ))}
             </ul>
           </div>
-          <a
-            className="pre_arrow indexpg arr_same"
-            onClick={() => arrow(1)}
-          ></a>
-          <a
-            className="next_arrow indexpg arr_same"
-            onClick={() => arrow(2)}
-          ></a>
+          <div className="pre">
+            <a
+              className="pre_arrow indexpg arr_same"
+              onClick={() => arrow(1)}
+            ></a>
+          </div>
+
+          <div className="next">
+            <a
+              className="next_arrow indexpg arr_same"
+              onClick={() => arrow(2)}
+            ></a>
+          </div>
         </div>
       </div>
     </NewDiskWrapper>

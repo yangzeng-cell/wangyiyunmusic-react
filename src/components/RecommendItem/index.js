@@ -4,7 +4,6 @@ import { RecommendItemWrapper } from './style';
 import { NavLink } from 'react-router-dom';
 import translateCounter from '../../utils/translateCounter';
 function RecommendItem({ item }) {
-  console.log(item);
   return (
     <RecommendItemWrapper>
       <div style={{ width: '140px', height: '140px', position: 'relative' }}>

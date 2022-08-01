@@ -15,6 +15,7 @@ module.exports = {
     }
   ],
   webpack: {
+    devtool: 'source-map',
     devServer: {
       // proxy: {
       //   '/': {

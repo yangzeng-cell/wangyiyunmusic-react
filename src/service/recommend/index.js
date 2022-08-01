@@ -15,8 +15,12 @@ export const getRecommendListAPI = () => {
 
 // 新碟上架
 export const getNewAlbumListAPI = (offset, limit) => {
-  console.log(offset, limit);
   return httpRequest.get(
     `/top/album?offset=${offset}&limit=${limit}&year=2022&month=7`
   );
+};
+
+// 所有榜单
+export const getTopListAPI = () => {
+  return httpRequest.get('/toplist');
 };

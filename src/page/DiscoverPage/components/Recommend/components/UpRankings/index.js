@@ -7,6 +7,7 @@ export default function UpRankings() {
   return (
     <UpRankingsWrapper>
       <TopHeader moreHref={moreHref} topTitle={topTitle}></TopHeader>
+      <div className="ranking_list"></div>
     </UpRankingsWrapper>
   );
 }
