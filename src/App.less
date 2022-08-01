@@ -57,3 +57,33 @@ p{
 .iconall{
   background: url("../src/assets/images/iconall.png") no-repeat 0 -9999px;
 }
+.icon{
+  background: url("../src/assets/images/icon.png") no-repeat 0 -99999px;
+}
+.clearFix{
+  &::after{
+    content: "";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+  }
+  *zoom:1
+}
+
+.addUnderLine{
+  &:hover{
+    text-decoration: underline;
+  }
+
+}
+
+.ablock{
+  display: block;
+}
+
+.textellips{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

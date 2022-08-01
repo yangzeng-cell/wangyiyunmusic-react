@@ -10,7 +10,10 @@ const defaultState = Map({
   previousIndex: 0,
   currentIndex: 0,
   newAlbumList: [],
-  topList: []
+  topList: [],
+  upPlayList: [],
+  newPlayList: [],
+  originPlayList: []
 });
 
 function reducer(state = defaultState, action) {
@@ -31,6 +34,12 @@ function reducer(state = defaultState, action) {
       return state.set('newAlbumList', action.newAlbumList);
     case recommendTypes.ALL_TOP_LIST:
       return state.set('topList', action.topList);
+    case recommendTypes.GET_UPPLAYLIST_DETAIL:
+      return state.set('upPlayList', action.playList);
+    case recommendTypes.GET_NEWPLAYLIST_DETAIL:
+      return state.set('newPlayList', action.playList);
+    case recommendTypes.GET_ORIGINPLAYLIST_DETAIL:
+      return state.set('originPlayList', action.playList);
     default:
       return state;
   }

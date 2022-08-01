@@ -24,3 +24,7 @@ export const getNewAlbumListAPI = (offset, limit) => {
 export const getTopListAPI = () => {
   return httpRequest.get('/toplist');
 };
+// 获取榜单详情接口
+export const getPlayListDetailAPI = (idx) => {
+  return httpRequest.get(`/playlist/detail?id=${idx}`);
+};

@@ -1,6 +1,7 @@
 import {
   getNewAlbumListAPI,
   getPlayListAPI,
+  getPlayListDetailAPI,
   getRecommendBannerList,
   getRecommendListAPI,
   getTopListAPI
@@ -45,6 +46,11 @@ const changeAlbumList = (newAlbumList) => ({
 const changeTopList = (topList) => ({
   type: recommendTypes.ALL_TOP_LIST,
   topList: topList
+});
+// 获取榜单数据
+const changePlayListDetail = (type, playList) => ({
+  type,
+  playList
 });
 
 export const getIndex = (index) => {
@@ -98,5 +104,14 @@ export const changeTopListAction = () => {
   return async (dispatch) => {
     const res = await getTopListAPI();
     dispatch(changeTopList(res.list));
+  };
+};
+
+// dispatch changePlayList 获取榜单数据
+
+export const changePlayListDetailAction = (type, idx) => {
+  return async (dispatch) => {
+    const res = await getPlayListDetailAPI(idx);
+    dispatch(changePlayListDetail(type, res.playlist.tracks));
   };
 };

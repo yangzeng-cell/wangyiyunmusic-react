@@ -10,20 +10,18 @@ import {
   changeAlbumListAction,
   changeTopListAction
 } from '../../../../store/discover/recommend/actionCreators';
-import RankingItem from '../../../../components/RankingItem';
 function Recommend() {
-  const { topBanners, newAlbumList, topList } = useSelector((state) => {
+  const { topBanners, newAlbumList } = useSelector((state) => {
     return {
       topBanners: state.getIn(['recommend', 'topBanners']),
-      newAlbumList: state.getIn(['recommend', 'newAlbumList']),
-      topList: state.getIn(['recommend', 'topList'])
+      newAlbumList: state.getIn(['recommend', 'newAlbumList'])
     };
   }, shallowEqual);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getTopBannerActions());
     dispatch(changeAlbumListAction());
-    dispatch(changeTopListAction);
+    dispatch(changeTopListAction());
   }, [dispatch]);
   return (
     <RecommendWrapper>
@@ -34,11 +32,7 @@ function Recommend() {
           <NewDisk newAlbumList={newAlbumList}></NewDisk>
           <UpRankings></UpRankings>
         </div>
-        <div className="g-sd1">
-          <RankingItem rankingList={topList[0]}></RankingItem>
-          <RankingItem rankingList={topList[1]}></RankingItem>
-          <RankingItem rankingList={topList[2]}></RankingItem>
-        </div>
+        <div className="g-sd1"></div>
       </div>
     </RecommendWrapper>
   );

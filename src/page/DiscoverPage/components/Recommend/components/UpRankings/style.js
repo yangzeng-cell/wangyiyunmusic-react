@@ -7,5 +7,10 @@ export const UpRankingsWrapper = styled.div`
     width: 100%;
     background: url(${require('@/assets/images/index_bill.png')}) no-repeat
       center center;
+    display: flex;
+    .bill {
+      width: 230px;
+      height: 100%;
+    }
   }
 `;
