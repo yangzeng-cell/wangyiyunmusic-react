@@ -29,12 +29,12 @@
   "scripts": {
     "prettier": "prettier --write .",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "push": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "react-scripts lint",
     "serve": "craco start",
-    "push": "craco build",
+    "build": "craco build",
     "prepare": "husky install",
     "commit": "cz"
   },
