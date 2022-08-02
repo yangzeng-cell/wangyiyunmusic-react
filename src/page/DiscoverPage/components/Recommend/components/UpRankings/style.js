@@ -12,5 +12,12 @@ export const UpRankingsWrapper = styled.div`
       width: 230px;
       height: 100%;
     }
+    .more {
+      height: 32px;
+      width: 100%;
+      padding-right: 32px;
+      line-height: 32px;
+      text-align: right;
+    }
   }
 `;

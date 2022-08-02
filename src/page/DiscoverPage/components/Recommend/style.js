@@ -17,8 +17,7 @@ export const RecommendWrapper = styled.div`
       box-sizing: border-box;
     }
     .g-sd1 {
-      width: 251px;
-      background-color: red;
+      width: 250px;
       overflow: hidden;
       box-sizing: border-box;
     }

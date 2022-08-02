@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { RankingItemWrapper } from './style';
 import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-export default function RankingItem({ topList, playList }) {
+export default function RankingItem({ topList, playList, components = null }) {
   const billRef = useRef();
   const move = (index) => {
     billRef.current.children[index].classList.add('change');
@@ -68,11 +68,13 @@ export default function RankingItem({ topList, playList }) {
           );
         })}
       </ul>
+      {components}
     </RankingItemWrapper>
   );
 }
 
 RankingItem.propTypes = {
   topList: PropTypes.object,
-  playList: PropTypes.array
+  playList: PropTypes.array,
+  components: PropTypes.any
 };

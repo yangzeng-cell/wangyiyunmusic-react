@@ -10,6 +10,7 @@ import {
   changeAlbumListAction,
   changeTopListAction
 } from '../../../../store/discover/recommend/actionCreators';
+import LoginBlock from './components/LoginBlock';
 function Recommend() {
   const { topBanners, newAlbumList } = useSelector((state) => {
     return {
@@ -32,7 +33,9 @@ function Recommend() {
           <NewDisk newAlbumList={newAlbumList}></NewDisk>
           <UpRankings></UpRankings>
         </div>
-        <div className="g-sd1"></div>
+        <div className="g-sd1">
+          <LoginBlock></LoginBlock>
+        </div>
       </div>
     </RecommendWrapper>
   );

@@ -63,6 +63,7 @@ export const RankingItemWrapper = styled.div`
   .bill_list {
     padding-left: 15px;
     width: 100%;
+    margin-bottom: 0;
     li {
       display: flex;
       line-height: 32px;
