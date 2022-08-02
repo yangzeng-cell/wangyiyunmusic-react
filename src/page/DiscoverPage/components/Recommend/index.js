@@ -8,9 +8,13 @@ import NewDisk from './components/NewDisk';
 import UpRankings from './components/UpRankings';
 import {
   changeAlbumListAction,
+  changeHotDjListAction,
+  changeTopArtistsListAction,
   changeTopListAction
 } from '../../../../store/discover/recommend/actionCreators';
 import LoginBlock from './components/LoginBlock';
+import SingerModule from './components/SingerModule';
+import DjModule from './components/DjModule';
 function Recommend() {
   const { topBanners, newAlbumList } = useSelector((state) => {
     return {
@@ -23,6 +27,8 @@ function Recommend() {
     dispatch(getTopBannerActions());
     dispatch(changeAlbumListAction());
     dispatch(changeTopListAction());
+    dispatch(changeTopArtistsListAction(0, 5));
+    dispatch(changeHotDjListAction(5));
   }, [dispatch]);
   return (
     <RecommendWrapper>
@@ -35,6 +41,8 @@ function Recommend() {
         </div>
         <div className="g-sd1">
           <LoginBlock></LoginBlock>
+          <SingerModule></SingerModule>
+          <DjModule></DjModule>
         </div>
       </div>
     </RecommendWrapper>

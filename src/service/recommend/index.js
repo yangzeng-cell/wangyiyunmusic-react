@@ -28,3 +28,12 @@ export const getTopListAPI = () => {
 export const getPlayListDetailAPI = (idx) => {
   return httpRequest.get(`/playlist/detail?id=${idx}`);
 };
+// /top/artists  热门歌曲
+export const getTopArtistsAPI = (offset, limit) => {
+  return httpRequest.get(`/top/artists?offset=${offset}&limit=${limit}`);
+};
+
+// 电台 - 最热主播榜
+export const getHotDjAPI = (limit) => {
+  return httpRequest.get(`/dj/toplist/popular?limit=${limit}`);
+};

@@ -1,5 +1,5 @@
 import './App.less';
-import { React } from 'react';
+import { React, useEffect } from 'react';
 import AppHeader from '@/components/AppHeader';
 import { Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -17,7 +17,20 @@ import DjRadio from './page/DiscoverPage/components/DjRadio';
 import PlayList from './page/DiscoverPage/components/PlayList';
 import Recommend from './page/DiscoverPage/components/Recommend';
 import TopList from './page/DiscoverPage/components/TopList';
+import AppFooter from './components/AppFooter';
+import BackTop from './components/BackTop';
 function App() {
+  useEffect(() => {
+    window.onscroll = logScroll;
+  });
+  const logScroll = () => {
+    console.log(window.scrollY);
+    if (window.scrollY === 0) {
+      document.querySelector('#back').style.display = 'none';
+    } else {
+      document.querySelector('#back').style.display = 'block';
+    }
+  };
   return (
     <Provider store={store}>
       <div className="App">
@@ -48,6 +61,8 @@ function App() {
             ></Route>
           </Routes>
         </div>
+        <AppFooter></AppFooter>
+        <BackTop></BackTop>
       </div>
     </Provider>
   );

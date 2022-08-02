@@ -1,9 +1,11 @@
 import {
+  getHotDjAPI,
   getNewAlbumListAPI,
   getPlayListAPI,
   getPlayListDetailAPI,
   getRecommendBannerList,
   getRecommendListAPI,
+  getTopArtistsAPI,
   getTopListAPI
 } from '../../../service/recommend';
 import * as recommendTypes from './constants';
@@ -53,6 +55,16 @@ const changePlayListDetail = (type, playList) => ({
   playList
 });
 
+// 获取热门歌手
+const changeTopArtistsList = (topArtists) => ({
+  type: recommendTypes.GET_TOP_ARTISTS,
+  topArtists
+});
+
+const changeHotDjList = (hotDjList) => ({
+  type: recommendTypes.GET_HOT_DJLIST,
+  hotDjList
+});
 export const getIndex = (index) => {
   return (dispatch) => {
     dispatch(changeBannerIndexAction(index));
@@ -113,5 +125,19 @@ export const changePlayListDetailAction = (type, idx) => {
   return async (dispatch) => {
     const res = await getPlayListDetailAPI(idx);
     dispatch(changePlayListDetail(type, res.playlist.tracks));
+  };
+};
+// 获取热门歌手
+export const changeTopArtistsListAction = (offset, limit) => {
+  return async (dispatch) => {
+    const res = await getTopArtistsAPI(offset, limit);
+    dispatch(changeTopArtistsList(res.artists));
+  };
+};
+
+export const changeHotDjListAction = (limit) => {
+  return async (dispatch) => {
+    const res = await getHotDjAPI(limit);
+    dispatch(changeHotDjList(res.data.list));
   };
 };

@@ -13,7 +13,9 @@ const defaultState = Map({
   topList: [],
   upPlayList: [],
   newPlayList: [],
-  originPlayList: []
+  originPlayList: [],
+  topArtists: [],
+  hotDjList: []
 });
 
 function reducer(state = defaultState, action) {
@@ -40,6 +42,10 @@ function reducer(state = defaultState, action) {
       return state.set('newPlayList', action.playList);
     case recommendTypes.GET_ORIGINPLAYLIST_DETAIL:
       return state.set('originPlayList', action.playList);
+    case recommendTypes.GET_TOP_ARTISTS:
+      return state.set('topArtists', action.topArtists);
+    case recommendTypes.GET_HOT_DJLIST:
+      return state.set('hotDjList', action.hotDjList);
     default:
       return state;
   }
