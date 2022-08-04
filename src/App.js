@@ -1,7 +1,7 @@
 import './App.less';
 import { React, useEffect } from 'react';
 import AppHeader from '@/components/AppHeader';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 
@@ -20,8 +20,14 @@ import TopList from './page/DiscoverPage/components/TopList';
 import AppFooter from './components/AppFooter';
 import BackTop from './components/BackTop';
 function App() {
+  let location = useLocation();
+  console.log(location);
+  let navigate = useNavigate();
   useEffect(() => {
     window.onscroll = logScroll;
+    if (location.pathname === '/') {
+      navigate('discover');
+    }
   });
   const logScroll = () => {
     console.log(window.scrollY);
