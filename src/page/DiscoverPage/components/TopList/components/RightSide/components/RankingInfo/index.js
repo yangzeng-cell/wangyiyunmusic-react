@@ -32,8 +32,12 @@ export default function RankingInfo({ topListInfo, updateFrequency = 0 }) {
             </i>
           </a>
           <a className="add button2" href="#"></a>
-          <a className="share button2" href="#"></a>
-          <a className="download button2" href="#"></a>
+          <a className="save button2" href="#">
+            <i className="button2">({topListInfo?.subscribedCount})</i>
+          </a>
+          <a className="share button2" href="#">
+            <i className="button2">({topListInfo?.shareCount})</i>
+          </a>
           <a className="comment button2" href="#"></a>
         </div>
       </div>

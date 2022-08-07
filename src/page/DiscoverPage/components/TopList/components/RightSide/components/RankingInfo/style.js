@@ -45,8 +45,17 @@ export const RankingInfoWrapper = styled.div`
         width: 66px;
         background-position: right -428px;
         color: #fff;
+        &:hover {
+          background-position: right -510px;
+          i {
+            background-position: 0 -469px;
+            .icon {
+              background-position: -28px -1622px;
+            }
+          }
+        }
 
-        i{
+        i {
           display: inline-block;
           padding: 0 7px 0 8px;
           background-position: 0 -387px;
@@ -54,12 +63,63 @@ export const RankingInfoWrapper = styled.div`
           width: 61px;
           font-style: normal;
           line-height: 31px;
-          .icon{
-            background-position:0 -1622px;
+          display: flex;
+          align-items: center;
+          .icon {
+            background-position: 0 -1622px;
             display: inline-block;
             height: 18px;
             width: 20px;
-
+          }
+        }
+      }
+      .add {
+        display: block;
+        width: 31px;
+        height: 31px;
+        margin-right: 5px;
+        background-position: 0 -1588px;
+        margin-left: -3px;
+        &:hover {
+          background-position: -40px -1588px;
+        }
+      }
+      .save {
+        display: block;
+        margin-right: 6px;
+        background-position: right -1020px;
+        padding-right: 5px;
+        height: 31px;
+        &:hover {
+          background-position: right -1106px;
+          i {
+            background-position: 0 -1063px;
+          }
+        }
+        i {
+          display: inline-block;
+          padding: 0 2px 0 28px;
+          background-position: 0 -977px;
+          height: 31px;
+          min-width: 27px;
+          font-style: normal;
+          line-height: 31px;
+        }
+      }
+      .share {
+        display: block;
+        margin-right: 6px;
+        padding-right: 5px;
+        background-position: right -1020px;
+        height: 31px;
+        i {
+          display: inline-block;
+          height: 31px;
+          line-height: 31px;
+          font-style: normal;
+          background-position: 0 -1225px;
+          padding: 0 2px 0 28px;
+        }
       }
     }
   }
