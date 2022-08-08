@@ -52,5 +52,7 @@ export const SongListWrapper = styled.div`
       color: #666666 !important;
       font-weight: normal;
     }
+    .song_item {
+    }
   }
 `;

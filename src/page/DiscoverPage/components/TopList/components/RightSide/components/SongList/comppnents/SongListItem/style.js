@@ -6,6 +6,45 @@ export const SongListItemWrapper = styled.tr`
     line-height: 18px;
     text-align: left;
   }
+  .hshow {
+    display: none;
+    width: 71px;
+    .add {
+      height: 13px;
+      width: 13px;
+      background-position: 0 -700px;
+      &:hover {
+        background-position: -22px -700px;
+      }
+    }
+    .save {
+      width: 20px;
+      height: 16px;
+      background-position: 0 -174px;
+      margin-left: 2px;
+      &:hover {
+        background-position: -20px -174px;
+      }
+    }
+    .share {
+      width: 18px;
+      height: 16px;
+      background-position: 0 -195px;
+      margin-left: 2px;
+      &:hover {
+        background-position: -20px -195px;
+      }
+    }
+    .download {
+      width: 18px;
+      height: 16px;
+      background-position: -81px -174px;
+      margin-left: 2px;
+      &:hover {
+        background-position: -104px -174px;
+      }
+    }
+  }
   .hd {
     .num {
       float: left;
@@ -24,10 +63,22 @@ export const SongListItemWrapper = styled.tr`
         margin: 0 auto;
         background-position: -67px -283px;
       }
+      .up {
+        padding-left: 8px;
+        line-height: 17px;
+        font-size: 10px;
+        background-position: -74px -299px;
+      }
+      .down {
+        padding-left: 8px;
+        line-height: 17px;
+        font-size: 10px;
+        background-position: -74px -318px;
+      }
     }
   }
   .title2 {
-    display: flex;
+    display: flex !important;
     align-items: center;
     .img {
       margin-right: 14px;
@@ -68,5 +119,8 @@ export const SongListItemWrapper = styled.tr`
   }
   .hidden {
     display: none !important;
+  }
+  .show1 {
+    display: block;
   }
 `;

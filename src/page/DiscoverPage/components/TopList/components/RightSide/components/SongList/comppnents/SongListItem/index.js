@@ -1,22 +1,43 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { SongListItemWrapper } from './style';
 import PropTypes from 'prop-types';
 import formatterDate from '../../../../../../../../../../utils/formatterDate';
 import { Link } from 'react-router-dom';
 export default function SongListItem({ item, index, trackIds }) {
+  const timerRef = useRef();
+  const showRef = useRef();
   const transfer = (data) => {
     data = data.join(' ');
     return data;
   };
+  const goIn = () => {
+    showRef.current.style.display = 'flex';
+    timerRef.current.style.display = 'none';
+  };
+  const goOut = () => {
+    showRef.current.style.display = 'none';
+    timerRef.current.style.display = 'block';
+  };
   return (
-    <SongListItemWrapper>
+    <SongListItemWrapper
+      style={{ background: index % 2 === 0 ? '#f7f7f7' : '' }}
+      onMouseOver={() => goIn()}
+      onMouseOut={() => goOut()}
+    >
       <td className="hd">
         <span className="num">{index + 1}</span>
         <span className="rank">
           <span
             className={'icon new ' + (trackIds.lr ? 'hidden' : 'show')}
           ></span>
-          <span className={'down ' + (trackIds.lr ? 'show' : 'hidden')}>
+          <span
+            className={
+              'icon ' +
+              (trackIds.lr ? 'show' : 'hidden') +
+              (trackIds.lr && trackIds.lr - index > 0 ? ' up' : '') +
+              (trackIds.lr && trackIds.lr - index < 0 ? ' down' : '')
+            }
+          >
             {trackIds.lr && trackIds.lr - index >= 0
               ? trackIds.lr - index
               : -(trackIds.lr - index)}
@@ -44,7 +65,13 @@ export default function SongListItem({ item, index, trackIds }) {
         </div>
       </td>
       <td>
-        <div>{formatterDate(item.dt, 'min')}</div>
+        <div ref={timerRef}>{formatterDate(item.dt, 'min')}</div>
+        <div ref={showRef} className="hshow">
+          <a className="add icon" title="添加到播放列表" href="#"></a>
+          <a className="save tablepg" title="收藏" href="#"></a>
+          <a className="share tablepg" href="#" title="分享"></a>
+          <a className="download tablepg" href="#" title="下载"></a>
+        </div>
       </td>
       <td>
         <Link className="addUnderLine" to={'/song?=' + item.id}>
