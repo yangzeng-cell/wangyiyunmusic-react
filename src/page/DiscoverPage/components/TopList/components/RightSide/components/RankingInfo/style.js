@@ -98,12 +98,13 @@ export const RankingInfoWrapper = styled.div`
         }
         i {
           display: inline-block;
-          padding: 0 2px 0 28px;
+          padding: 0 3px 0 28px;
           background-position: 0 -977px;
           height: 31px;
           min-width: 27px;
           font-style: normal;
           line-height: 31px;
+          margin-right: -1px;
         }
       }
       .share {
@@ -112,6 +113,12 @@ export const RankingInfoWrapper = styled.div`
         padding-right: 5px;
         background-position: right -1020px;
         height: 31px;
+        &:hover {
+          background-position: right -1106px;
+          i {
+            background-position: 0 -1268px;
+          }
+        }
         i {
           display: inline-block;
           height: 31px;
@@ -119,6 +126,53 @@ export const RankingInfoWrapper = styled.div`
           font-style: normal;
           background-position: 0 -1225px;
           padding: 0 2px 0 28px;
+        }
+      }
+      .download {
+        display: block;
+        margin-right: 6px;
+        padding-right: 5px;
+        background-position: right -1020px;
+        color: #333;
+        height: 31px;
+        &:hover {
+          background-position: right -1106px;
+          i {
+            background-position: 0 -2805px;
+          }
+        }
+        i {
+          display: block;
+          height: 31px;
+          line-height: 31px;
+          padding-right: 3px;
+          padding-left: 28px;
+          background-position: 0 -2761px;
+          font-style: normal;
+          margin-right: -1px;
+        }
+      }
+      .comment {
+        display: block;
+        height: 31px;
+        padding-right: 5px;
+        background-position: right -1020px;
+        color: #333;
+        &:hover {
+          background-position: right -1106px;
+          i {
+            background-position: 0 -1508px;
+          }
+        }
+        i {
+          display: block;
+          height: 31px;
+          line-height: 31px;
+          font-style: normal;
+          padding-left: 28px;
+          padding-right: 3px;
+          margin-right: -1px;
+          background-position: 0 -1465px;
         }
       }
     }

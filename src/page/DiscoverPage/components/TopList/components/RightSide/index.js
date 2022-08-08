@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { getTopDetailInfoAction } from '../../../../../../store/discover/toplist/actionCreator';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import SongList from './components/SongList';
 export default function RightSide({ idx }) {
   const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ export default function RightSide({ idx }) {
         updateFrequency={updateFrequency}
         topListInfo={topListInfo}
       ></RankingInfo>
+      <SongList topListInfo={topListInfo}></SongList>
     </RightSideWrapper>
   );
 }
