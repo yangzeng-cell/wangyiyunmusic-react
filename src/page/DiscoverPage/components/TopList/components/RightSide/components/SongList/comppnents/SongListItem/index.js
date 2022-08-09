@@ -18,6 +18,12 @@ export default function SongListItem({ item, index, trackIds }) {
     showRef.current.style.display = 'none';
     timerRef.current.style.display = 'block';
   };
+  const concatName = (item) => {
+    const arr = item.map((i) => {
+      return i.name;
+    });
+    return arr.join('/');
+  };
   return (
     <SongListItemWrapper
       style={{ background: index % 2 === 0 ? '#f7f7f7' : '' }}
@@ -75,7 +81,7 @@ export default function SongListItem({ item, index, trackIds }) {
       </td>
       <td>
         <Link className="addUnderLine" to={'/song?=' + item.id}>
-          {item.ar[0].name}
+          {concatName(item.ar)}
         </Link>
       </td>
     </SongListItemWrapper>

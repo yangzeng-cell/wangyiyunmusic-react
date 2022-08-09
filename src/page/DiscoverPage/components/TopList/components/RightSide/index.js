@@ -8,6 +8,7 @@ import { getTopDetailInfoAction } from '../../../../../../store/discover/toplist
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import SongList from './components/SongList';
+import CommentList from './components/CommentList';
 export default function RightSide({ idx }) {
   const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ export default function RightSide({ idx }) {
         topListInfo={topListInfo}
       ></RankingInfo>
       <SongList topListInfo={topListInfo}></SongList>
+      <CommentList id={topListInfo.id}></CommentList>
     </RightSideWrapper>
   );
 }

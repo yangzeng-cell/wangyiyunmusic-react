@@ -89,3 +89,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 }
 
 后期需要重写时间转换的方法
+
+后期可以写一个对字符串中的\n替换成<br/> 的方法用正则
+
+word-break: break-word  CSS 属性 word-break 指定了怎样在单词内断行
