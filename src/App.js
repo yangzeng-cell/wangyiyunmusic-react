@@ -19,6 +19,7 @@ import Recommend from './page/DiscoverPage/components/Recommend';
 import TopList from './page/DiscoverPage/components/TopList';
 import AppFooter from './components/AppFooter';
 import BackTop from './components/BackTop';
+import PlayerBar from './components/PlayerBar';
 function App() {
   let location = useLocation();
   console.log(location);
@@ -69,6 +70,7 @@ function App() {
         </div>
         <AppFooter></AppFooter>
         <BackTop></BackTop>
+        <PlayerBar></PlayerBar>
       </div>
     </Provider>
   );
