@@ -21,6 +21,7 @@ export default function LeftSide({ getindex }) {
       dispatch(getTopDetailInfoAction(topList[0].id));
     }
   }, [topList]);
+
   return (
     <LeftSideWrapper>
       <h2 className="side_head">云音乐特色榜</h2>
@@ -40,9 +41,16 @@ export default function LeftSide({ getindex }) {
       </ul>
       <h2 className="side_head two">全球媒体榜</h2>
       <ul className="music_ranking">
-        {topList.slice(5).map((item) => (
-          <li key={item.id}>
-            <TopListItem item={item}></TopListItem>
+        {topList.slice(4).map((item, index) => (
+          <li
+            className={curIndex === index * 1 + 4 ? 'active' : ''}
+            key={item.id}
+            onClick={() => {
+              setCurIndex(index * 1 + 4);
+              getindex(index * 1 + 4);
+            }}
+          >
+            <TopListItem data-idx={index * 1 + 4} item={item}></TopListItem>
           </li>
         ))}
       </ul>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { CommentListWrapper } from './style';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
@@ -12,10 +12,15 @@ import CommentItem from '../../../../../../../../components/CommentItem';
 import Pegination from '../../../../../../../../components/Pagination';
 
 export default function CommentList({ id }) {
+  const [ply, setPly] = useState('block');
+  const [current, setCurrent] = useState(1);
+  const recommendCommentRef = useRef();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCommentPlaylistInfoAction(id));
     dispatch(getRecommendCommentListAction(id, 2, 2));
+    setCurrent(1);
+    setPly('block');
   }, [id]);
   const { commentPlaylist, recommendCommentList } = useSelector((state) => {
     return {
@@ -24,8 +29,14 @@ export default function CommentList({ id }) {
     };
   }, shallowEqual);
   const onChange = (page, pageSize) => {
-    console.log(page, pageSize, 'page, pageSize');
+    setCurrent(page);
+    console.log(current, page, pageSize, 'page, pageSize');
     dispatch(getCommentPlaylistInfoAction(id, (page - 1) * pageSize));
+    if (page === 1) {
+      setPly('block');
+    } else {
+      setPly('none');
+    }
   };
   return (
     <CommentListWrapper>
@@ -34,7 +45,11 @@ export default function CommentList({ id }) {
         <span>共{commentPlaylist?.total}条评论</span>
       </div>
       <from></from>
-      <div className="recommend_comment">
+      <div
+        ref={recommendCommentRef}
+        className="recommend_comment"
+        style={{ display: ply }}
+      >
         <h3>精彩评论</h3>
         {recommendCommentList?.comments?.map((item) => (
           <CommentItem key={item.commentId} item={item}></CommentItem>
@@ -51,6 +66,7 @@ export default function CommentList({ id }) {
           total={commentPlaylist?.total}
           pageSize={20}
           onChange={onChange}
+          current={current}
         ></Pegination>
       </div>
     </CommentListWrapper>

@@ -28,5 +28,8 @@ export const LeftSideWrapper = styled.div`
   }
   .active {
     background-color: #e6e6e6;
+    &:hover {
+      background-color: #e6e6e6 !important;
+    }
   }
 `;

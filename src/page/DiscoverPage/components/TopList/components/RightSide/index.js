@@ -22,6 +22,7 @@ export default function RightSide({ idx }) {
     };
   });
   const { updateFrequency } = useSelector((state) => {
+    console.log(idx, 'idx');
     return {
       updateFrequency: state.getIn(['recommend', 'topList'])[idx]
         ?.updateFrequency
